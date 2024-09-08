@@ -1,11 +1,8 @@
-import { clearCompleted } from "@/slices/shoppingListSlice";
 import { Button } from "../components/ui/button";
-import { useAppDispatch } from "@/store";
 
 export default function ClearButton() {
-  const dispatch = useAppDispatch();
   const clear = () => {
-    dispatch(clearCompleted());
+    alert("Clear Completed");
   };
 
   return (

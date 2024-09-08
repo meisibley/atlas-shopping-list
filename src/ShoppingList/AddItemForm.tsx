@@ -1,19 +1,17 @@
 import { useState } from "react";
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
-import { useAppDispatch } from "../store";
-import { addItem } from "../slices/shoppingListSlice";
 
 export function AddItemForm() {
   const [newItem, setNewItem] = useState("");
-  const dispatch = useAppDispatch();
 
   const handleSubmit = () => {
     if (newItem.trim() !== "") {
-      dispatch(addItem(newItem));
+      alert(`Add: ${newItem} to the list`);
       setNewItem("");
     }
   };
+
   return (
     <div className="flex items-center">
       <Input
