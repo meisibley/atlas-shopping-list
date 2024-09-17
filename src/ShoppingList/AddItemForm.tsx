@@ -1,13 +1,17 @@
 import { useState } from "react";
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
+import { useAppDispatch } from "./store";
+import { addItem } from "./shoppingListSlice";
 
 export function AddItemForm() {
   const [newItem, setNewItem] = useState("");
+  const dispatch = useAppDispatch();
 
   const handleSubmit = () => {
     if (newItem.trim() !== "") {
-      alert(`Add: ${newItem} to the list`);
+      // alert(`Add: ${newItem} to the list`);
+      dispatch(addItem(newItem));
       setNewItem("");
     }
   };

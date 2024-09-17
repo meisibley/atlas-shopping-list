@@ -1,13 +1,16 @@
 import { AddItemForm } from "./AddItemForm";
 import ClearButton from "./ClearButton";
 import { ShoppingListItem } from "./ShoppingListItem";
+import { useAppSelector } from "./store";
 
-const items = [
-  { id: "1", name: "Item 1", completed: false },
-  { id: "2", name: "Item 2", completed: true },
-];
+// const items = [
+//   { id: "1", name: "Item 1", completed: false },
+//   { id: "2", name: "Item 2", completed: true },
+// ];
 
 export function ShoppingList() {
+  const items = useAppSelector((state) => state.shoppingList);
+
   return (
     <div className="bg-background text-foreground p-6 rounded-lg shadow-md w-full max-w-md mx-auto">
       <div className="mb-6">

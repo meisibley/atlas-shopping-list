@@ -1,4 +1,6 @@
 import { Checkbox } from "../components/ui/checkbox";
+import { toggleCompleted } from "./shoppingListSlice";
+import { useAppDispatch } from "./store";
 
 type ShoppingListItemProps = {
   id: string;
@@ -11,8 +13,10 @@ export function ShoppingListItem({
   completed,
   name,
 }: ShoppingListItemProps) {
+  const dispatch = useAppDispatch();
   const toggleItemCompletion = () => {
-    alert(`Toggle ${name} completion`);
+    // alert(`Toggle ${name} completion`);
+    dispatch(toggleCompleted(id));
   };
   return (
     <li
